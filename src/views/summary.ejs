@@ -15,11 +15,11 @@
     <td><a href="/<%= account.unique_name %>"><%= account.nickname %></a></td>
     <td><%= account.account_number %></td>
     <% if (account.unique_name == 'credit') { %>
-      <td>$<%= account.available %></td>
+      <td>$<%= account.available.toFixed(2) %></td>
     <% } else { %>
-      <td>$<%= account.prior_balance %></td>
+      <td>$<%= account.prior_balance.toFixed(2) %></td>
     <% } %>
     
-    <td>$<%= account.balance %></td>
+    <td>$<%= account.balance.toFixed(2) %></td>
   </tr>
 </table>

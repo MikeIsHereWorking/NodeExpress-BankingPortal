@@ -31,7 +31,7 @@ describe('Transfer post route write JSON', () => {
     const res = mockRes();
     assert(typeof handleSpy === 'function', 'The transfer post route may not exist.');
     handleSpy(req, res);
-    assert(writeFileSyncStub.called, '`writeFileSync` was not called.');
+    assert(writeFileSyncStub.called, '`writeFileSync` was not called.');    
     assert(
       writeFileSyncStub.firstCall.args[0] === path.join(__dirname, '../../src/json/accounts.json'),
       'The path being passed to `writeFileSync` is incorrect.'
