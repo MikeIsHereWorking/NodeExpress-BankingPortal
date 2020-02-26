@@ -1,12 +1,9 @@
 const path = require('path');
 const fs = require('fs');
-const morgan = require('morgan');
 const express = require('express');
-const debug = require('debug')('app');
-
 const app = express();
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,7 +54,7 @@ app.get('/transfer', (req, res) => {
 
 app.post('/transfer', (req, res) => {
   const { from, to, amount } = req.body;
-  debug(`${from} to ${to} for ${amount}`);
+
   accounts[from].balance -= parseInt(amount, 10);
   accounts[to].balance += parseInt(amount, 10);
   const accountsJSON = JSON.stringify(accounts);
